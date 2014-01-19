@@ -1,0 +1,287 @@
+/**
+  * utilities
+**/
+
+@mixin horizontal-list($left-margin: 0) {
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+
+	li {
+		float: left;
+		margin: 0 0 0 $left-margin;
+		padding: 0;
+
+		@if $left-margin != 0 {
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+
+		&:before {
+			content: "";
+		}
+	}
+}
+
+@mixin centered-list($left-margin: 0) {
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	text-align: center;
+
+	li {
+		display: inline-block;
+		margin: 0 0 0 $left-margin;
+		padding: 0;
+
+		@if $left-margin != 0 {
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+
+		&:before {
+			content: "";
+		}
+	}
+}
+
+@mixin clear-list() {
+	padding: 0;
+	margin: 0;
+
+	li {
+		margin: 0;
+		padding: 0;
+
+		&:before {
+			content: "";
+		}
+	}
+}
+
+@mixin clearfix() {
+	display: inline-block;
+
+	&:after {
+		content: ".";
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+
+	* html & {
+		height: 1px
+	}
+}
+
+/**
+  * font rules
+**/
+
+@mixin font-size($size) {
+	@include rem(font-size, $size);
+}
+
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal) {
+	@font-face {
+		font-family: $font-family;
+		src: url('#{$file-path}.eot');
+		src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'), url('#{$file-path}.svg##{$font-family}') format('svg'), url('#{$file-path}.woff') format('woff'), url('#{$file-path}.ttf') format('truetype');
+		font-weight: $weight;
+		font-style: $style;
+	}
+}
+
+@mixin icons-font($font-family) {
+	[data-icon]:before {
+		font-family: $font-family;
+		content: attr(data-icon);
+		speak: none;
+		font-weight: normal;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+	}
+}
+
+/**
+  * css3 rules
+**/
+
+$default-prefixes: webkit moz ms o;
+@mixin prefix-values($property, $value, $prefixes: $default-prefixes) {
+	@each $prefix in $prefixes {
+		-#{$prefix}-#{$property}: #{$value};
+	}
+
+	#{$property}: #{$value};
+}
+
+@mixin fade-in($speed){
+  transition: opacity $speed;
+  -webkit-transition: opacity $speed;
+  opacity: 1;
+}
+
+@mixin fade-out($speed){
+  transition: opacity $speed;
+  -webkit-transition: opacity $speed;
+  opacity: 0;
+}
+
+@mixin slide-in($speed){
+  transition: top $speed;
+  -webkit-transition: top $speed;
+  top: 0;
+}
+
+@mixin slide-out($speed){
+  transition: top $speed;
+  -webkit-transition: top $speed;
+  top: -100%;
+}
+
+@mixin border-radius($values) {
+	-moz-border-radius: $values;
+	-webkit-border-radius: $values;
+	border-radius: $values;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+}
+
+@mixin box-shadow($x, $y, $offset, $hex, $spread: 0) {
+	-moz-box-shadow: $x $y $offset $spread $hex;
+	-webkit-box-shadow: $x $y $offset $spread $hex;
+	box-shadow: $x $y $offset $spread $hex;
+}
+
+@mixin box-sizing($value) {
+	-moz-box-sizing: $value;
+	-webkit-box-sizing: $value;
+	box-sizing: $value;
+}
+
+@mixin linear-gradient($from, $to, $isButton: 0, $url: null) {
+	background-color: $from;
+	@if $url != null {
+		background-image: url($url), -webkit-gradient(linear, left top, left bottom, color-stop(0, $from), color-stop(1, $to));
+		background-image: url($url), -webkit-linear-gradient(top, $from, $to);
+		background-image: url($url), -moz-linear-gradient(top, $from, $to);
+		background-image: url($url), -ms-linear-gradient(top, $from, $to);
+		background-image: url($url), -o-linear-gradient(top, $from, $to);
+		background-image: url($url), linear-gradient(top, bottom, $from, $to);
+	} @else {
+		background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, $from), color-stop(1, $to));
+		background-image: -webkit-linear-gradient(top, $from, $to);
+		background-image: -moz-linear-gradient(top, $from, $to);
+		background-image: -ms-linear-gradient(top, $from, $to);
+		background-image: -o-linear-gradient(top, $from, $to);
+		background-image: linear-gradient(top, bottom, $from, $to);
+	}
+
+	@if $isButton == 1 {
+		&:hover {
+			@if $url != null {
+				background-image: url($url), -webkit-gradient(linear, left top, left bottom, color-stop(0, $to), color-stop(1, $from));
+				background-image: url($url), -webkit-linear-gradient(top, $to, $from);
+				background-image: url($url), -moz-linear-gradient(top, $to, $from);
+				background-image: url($url), -ms-linear-gradient(top, $to, $from);
+				background-image: url($url), -o-linear-gradient(top, $to, $from);
+				background-image: url($url), linear-gradient(top, bottom, $to, $from);
+			} @else {
+				background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, $to), color-stop(1, $from));
+				background-image: -webkit-linear-gradient(top, $to, $from);
+				background-image: -moz-linear-gradient(top, $to, $from);
+				background-image: -ms-linear-gradient(top, $to, $from);
+				background-image: -o-linear-gradient(top, $to, $from);
+				background-image: linear-gradient(top, bottom, $to, $from);
+			}
+		}
+	}
+}
+
+@mixin background-column($width, $color, $from: left) {
+	background-color: transparent;
+	background-image: -webkit-gradient(linear, $from top, $from top, color-stop($width, $color), color-stop($width, transparent));
+	background-image: -webkit-linear-gradient($from, $color $width, transparent $width);
+	background-image: -moz-linear-gradient($from, $color $width, transparent $width);
+	background-image: -o-linear-gradient($from, $color $width, transparent $width);
+	background-image: linear-gradient($from, $color $width, transparent $width);
+}
+
+@mixin rgba-bg($hex, $alpha) {
+	background-color: $hex;
+	background-color: rgba($hex, $alpha);
+}
+
+@mixin transition($value) {
+	-moz-transition: $value;
+	-o-transition: $value;
+	-ms-transition: $value;
+	-webkit-transition: $value;
+	transition: $value;
+}
+
+@mixin transform($value){
+  transform:$value;
+  -ms-transform:$value;
+  -webkit-transform:$value;
+
+}
+
+@mixin grey-scale() {
+	filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+	filter: gray;
+	-webkit-filter: grayscale(100%);
+}
+
+@mixin opactiy($value) {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$value*100})";
+	opacity: $value;
+}
+
+@mixin rem($property, $values) {
+
+	$basePx: 16;
+	@if $globalFontSize != null {
+		$basePx: $globalFontSize * 16;
+	}
+
+	$px: ();
+	$rem: ();
+
+	@each $value in $values {
+		@if $value == 0 or $value == auto {
+			$px: append($px, $value);
+			$rem: append($rem, $value);
+		} @else {
+			$unit: unit($value);
+			$val: parseInt($value);
+
+			@if $unit == "px" or $unit != "rem" {
+				$px: append($px, $value);
+				$rem: append($rem, ($val / $basePx + rem));
+			}
+
+			@if $unit == "rem" {
+				$px: append($px, ($val * $basePx + px));
+				$rem: append($rem, $value);
+			}
+		}
+	}
+
+	#{$property}: $px;
+	#{$property}: $rem;
+}
+
+/**
+  * functions
+**/
+
+@function parseInt($n) {
+/* [2] */
+	@return $n / ($n * 0 + 1);
+}

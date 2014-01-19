@@ -1,0 +1,264 @@
+body {
+  background: url('../img/bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+}
+
+
+/*
+* @content
+*/
+.content {
+  @include box-sizing(border-box);
+  @include transition(height 500ms ease-in);
+  height: 0px;
+  position: absolute;
+  overflow: hidden;
+}
+
+.next,
+.prev {
+  position: absolute;
+  top: 80px;
+  color: #fff;
+  font-size: 40px;
+  &:hover {
+    color: #ccc;
+  }
+}
+.prev {
+  left: -30px;
+}
+.next {
+  right: -30px;
+}
+
+
+/*
+* @top & @bottom
+*/
+.top,
+.bottom {
+  @include transition(all 500ms ease-in);
+  @include transform(perspective(500px));
+  height: 250px;
+  text-align: center;
+  overflow: hidden;
+}
+.top {
+  position: relative;
+  background: rgba(#000, 0.7);
+  @include border-radius(250px 250px 0 0);
+  img {
+    margin-top: 100px;
+  }
+}
+.bottom {
+  background: rgba($accent-color, 0.7);
+  @include border-radius(0 0 250px 250px);
+}
+
+
+/*
+* @lightswitch
+*/
+.lightswitch {
+  @include border-radius(20px);
+  @include transition(all 300ms ease-in-out);
+  position: absolute;
+  top: 100px;
+  right: 12.50%;
+  background: $shadow-color;
+  width: 21px;
+  height: 21px;
+  z-index: 10;
+  &:before {
+    @include transition(all 300ms ease-in-out);
+    content: '';
+    height: 100px;
+    width: 1px;
+    background: $dark-border;
+    position: absolute;
+    top: -100px;
+    left: 10px;
+  }
+  &:active,
+  &:focus {
+    outline: none;
+  }
+
+  &.on {
+    background: $d-body-color;
+    top: 120px;
+    &:before {
+      top: -120px;
+      height: 120px;
+    }
+  }
+}
+
+@include keyframes(lateFadeIn) {
+  0% {
+    opacity:0;
+  }
+  75% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@include keyframes(lateFadeOut) {
+  0% {
+    opacity:1;
+  }
+  75% {
+    opacity:0;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+
+/*
+* Slider Stuff
+*/
+.swiper-container {
+  width: 500px;
+  height: 200px;
+  opacity: 0;
+  &.open{
+    @include animation(lateFadeIn 500ms normal forwards ease-in-out);
+  }
+}
+.swiper-wrapper {
+  width: 2500px;
+}
+.swiper-slide {
+  @include transform(scale(0.2));
+  @include transition(all 400ms ease-in);
+  @include box-sizing(border-box);
+  position: relative;
+  background: rgba(#fff,0.5);
+  padding: 20px;
+  width: 500px;
+  height: 200px;
+  color: #f0f0f0;
+  h1 {
+    position: absolute;
+    top: -150px;
+    width: 100%;
+    text-align: center;
+    color: #f0f0f0;
+    left: 0;
+    font-size: 5em;
+    @include animation(lateFadeIn 500ms normal forwards ease-in-out);
+  }
+  p,
+  address {
+    padding: 3px;
+    background: rgba(#000, 0.8);
+  }
+  form {
+    margin: 15px 0;
+    text-align: center;
+  }
+  .map {
+    float: right;
+    margin-top: -20px;
+  }
+  .icon-twitter-sign {
+    color: #f0f0f0;
+    margin: 12px auto 0px;
+    width: 35px;
+    height: 40px;
+    font-size: 40px;
+    display: block;
+    &:hover {
+      color: #ccc;
+    }
+  }
+  &.subscribe {
+    background: url(../img/scenery/chatting.jpg) no-repeat center center;
+    @include background-size(cover);
+  }
+  &.intro {
+    background: url(../img/scenery/joshtalk.jpg) no-repeat center center;
+    @include background-size(cover);
+  }
+  &.about,
+  &.contact {
+    background: url(../img/scenery/intro.jpg) no-repeat center center;
+    @include background-size(cover);
+  }
+  .jump {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+}
+
+.swiper-slide-active {
+  @include transform(scale(1));
+  .jump {
+    display: none;
+  }
+  h1 {
+    @include animation(lateFadeOut 100ms normal forwards ease-in-out);
+  }
+}
+
+.swiper-slide-visible {
+}
+
+.gallery {
+  display: block;
+  float: left;
+}
+
+
+/*
+* @contain
+*/
+.contain {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
+.contain.open {
+  .top {
+    margin-top: -100px;
+    -webkit-backface-visibility: hidden;
+    @include transform(perspective(500px) rotateX( 45deg ));
+    @include transform-origin(50% 100% 0);
+  }
+  .bottom {
+    margin-top: 200px;
+    @include transform(perspective(500px) rotateX( -45deg ));
+    @include transform-origin(50% 0 0);
+  }
+  .content {
+    height: 200px;
+    overflow: visible;
+  }
+  .prev,
+  .next {
+    @include animation(lateFadeIn 500ms normal forwards ease-in-out);
+    &.inactive {
+      display: none;
+    }
+  }
+}

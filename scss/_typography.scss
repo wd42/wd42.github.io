@@ -1,0 +1,15 @@
+body {
+  font-family: "Exo", sans-serif;
+}
+
+p {
+  margin: 0;
+}
+
+h1 {
+  @include font-size(46);
+  margin: 40px 0 0;
+  color: $dark-text;
+  font-weight: 200;
+  line-height: 1.1em;
+}
