@@ -1,3 +1,29 @@
+
+@include keyframes(lateFadeIn) {
+  0% {
+    opacity:0;
+  }
+  75% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@include keyframes(lateFadeOut) {
+  0% {
+    opacity:1;
+  }
+  75% {
+    opacity:0;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+
 body {
   background: url('../img/bg.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -7,60 +33,33 @@ body {
   overflow: hidden;
 }
 
-
-/*
-* @content
-*/
-.content {
-  @include box-sizing(border-box);
-  @include transition(height 500ms ease-in);
-  height: 0px;
-  position: absolute;
-  overflow: hidden;
-}
-
-.next,
-.prev {
-  position: absolute;
-  top: 80px;
+/* Mozilla based browsers */
+::-moz-selection {
+  background-color: $bold-accent-color;
   color: #fff;
-  font-size: 40px;
-  &:hover {
-    color: #ccc;
-  }
-}
-.prev {
-  left: -30px;
-}
-.next {
-  right: -30px;
 }
 
-
-/*
-* @top & @bottom
-*/
-.top,
-.bottom {
-  @include transition(all 500ms ease-in);
-  @include transform(perspective(500px));
-  height: 250px;
-  text-align: center;
-  overflow: hidden;
-}
-.top {
-  position: relative;
-  background: rgba(#000, 0.7);
-  @include border-radius(250px 250px 0 0);
-  img {
-    margin-top: 100px;
-  }
-}
-.bottom {
-  background: rgba($accent-color, 0.7);
-  @include border-radius(0 0 250px 250px);
+/* Works in Safari */
+::selection {
+  background-color: $bold-accent-color;
+  color: #fff;
 }
 
+.screen {
+  @include transition(opacity 500ms ease-in);
+  content: "";
+  position: absolute;
+  background: rgba(#b04893,0.3);
+  z-index: -1; /* Keep the background behind the content */
+  height: 100%; width: 100%; /* Using Glen Maddern's trick /via @mente */
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+body.active .screen {
+  opacity: 1;
+}
 
 /*
 * @lightswitch
@@ -100,77 +99,83 @@ body {
   }
 }
 
-@include keyframes(lateFadeIn) {
-  0% {
-    opacity:0;
-  }
-  75% {
-    opacity:0;
-  }
-  100% {
-    opacity:1;
+
+/*
+* @top & @bottom
+*/
+.top,
+.bottom {
+  @include transition(all 500ms ease-in);
+  @include transform(perspective(500px));
+  height: 250px;
+  text-align: center;
+  overflow: hidden;
+}
+.top {
+  position: relative;
+  background: rgba(#000, 0.7);
+  @include border-radius(250px 250px 0 0);
+  img {
+    margin-top: 100px;
   }
 }
-
-@include keyframes(lateFadeOut) {
-  0% {
-    opacity:1;
-  }
-  75% {
-    opacity:0;
-  }
-  100% {
-    opacity:0;
-  }
+.bottom {
+  background: rgba($accent-color, 0.7);
+  @include border-radius(0 0 250px 250px);
 }
 
 
 /*
-* Slider Stuff
+* @content
 */
-.swiper-container {
-  width: 500px;
-  height: 200px;
-  opacity: 0;
-  &.open{
-    @include animation(lateFadeIn 500ms normal forwards ease-in-out);
+.content {
+  @include box-sizing(border-box);
+  @include transition(height 500ms ease-in);
+  height: 0px;
+  position: absolute;
+  overflow: hidden;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+  }
+
+  &.open {
+    ul,
+    nav {
+      @include animation(lateFadeIn 500ms normal forwards ease-in-out);
+    }
   }
 }
-.swiper-wrapper {
-  width: 2500px;
-}
+
+/*
+* Slider Stuff
+*/
+
 .swiper-slide {
-  @include transform(scale(0.2));
   @include transition(all 400ms ease-in);
   @include box-sizing(border-box);
   position: relative;
   background: rgba(#fff,0.5);
-  padding: 20px;
+  padding: 60px 0 20px;
   width: 500px;
-  height: 200px;
-  color: #f0f0f0;
-  h1 {
-    position: absolute;
-    top: -150px;
-    width: 100%;
-    text-align: center;
-    color: #f0f0f0;
-    left: 0;
-    font-size: 5em;
-    @include animation(lateFadeIn 500ms normal forwards ease-in-out);
-  }
+  height: $contentHeight;
+  color: #222;
+  font-family: $content-font-stack;
   p,
   address {
-    padding: 3px;
-    background: rgba(#000, 0.8);
+    padding: 10px;
+    background: rgba(#fff, 0.8);
   }
   form {
-    margin: 15px 0;
+    margin: 0;
     text-align: center;
+    background: rgba(#fff, 0.8);
   }
   .map {
     float: right;
-    margin-top: -20px;
   }
   .icon-twitter-sign {
     color: #f0f0f0;
@@ -187,7 +192,7 @@ body {
     background: url(../img/scenery/chatting.jpg) no-repeat center center;
     @include background-size(cover);
   }
-  &.intro {
+  &.gallery {
     background: url(../img/scenery/joshtalk.jpg) no-repeat center center;
     @include background-size(cover);
   }
@@ -215,12 +220,66 @@ body {
   }
 }
 
-.swiper-slide-visible {
-}
 
 .gallery {
   display: block;
   float: left;
+}
+
+
+/*
+* @nav
+*/
+
+nav {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 10;
+  text-align: center;
+  border-bottom: 2px solid rgba($accent-color,0.4);
+
+  ul {
+    margin: 0 auto;
+    padding: 0;
+    display: inline-block;
+    li {
+      display: inline-block;
+    }
+  }
+
+  a {
+    @include box-sizing(border-box);
+    padding: 10px;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    &:hover,
+    &.active{
+      background: rgba($bold-accent-color,0.7);
+      &:before {
+        opacity: 1;
+      }
+    }
+    &:focus,
+    &:active {
+      outline: none;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      bottom: -2px;
+      left: 0;
+      background: $bold-accent-color;
+      opacity: 0;
+    }
+  }
 }
 
 
@@ -238,27 +297,20 @@ body {
   margin: auto;
 }
 
+
 .contain.open {
   .top {
-    margin-top: -100px;
+    margin-top: -($contentHeight / 2);
     -webkit-backface-visibility: hidden;
     @include transform(perspective(500px) rotateX( 45deg ));
-    @include transform-origin(50% 100% 0);
+    @include transform-origin(50% 100% 1px);
   }
   .bottom {
-    margin-top: 200px;
+    margin-top: $contentHeight;
     @include transform(perspective(500px) rotateX( -45deg ));
     @include transform-origin(50% 0 0);
   }
   .content {
-    height: 200px;
-    overflow: visible;
-  }
-  .prev,
-  .next {
-    @include animation(lateFadeIn 500ms normal forwards ease-in-out);
-    &.inactive {
-      display: none;
-    }
+    overflow: hidden;
   }
 }

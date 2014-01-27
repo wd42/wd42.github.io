@@ -1695,128 +1695,6 @@ h1 {
   font-weight: 200;
   line-height: 1.1em; }
 
-body {
-  background: url("../img/bg.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  overflow: hidden; }
-
-/*
-* @content
-*/
-.content {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -moz-transition: height 500ms ease-in;
-  -o-transition: height 500ms ease-in;
-  -ms-transition: height 500ms ease-in;
-  -webkit-transition: height 500ms ease-in;
-  transition: height 500ms ease-in;
-  height: 0px;
-  position: absolute;
-  overflow: hidden; }
-
-.next,
-.prev {
-  position: absolute;
-  top: 80px;
-  color: #fff;
-  font-size: 40px; }
-  .next:hover,
-  .prev:hover {
-    color: #ccc; }
-
-.prev {
-  left: -30px; }
-
-.next {
-  right: -30px; }
-
-/*
-* @top & @bottom
-*/
-.top,
-.bottom {
-  -moz-transition: all 500ms ease-in;
-  -o-transition: all 500ms ease-in;
-  -ms-transition: all 500ms ease-in;
-  -webkit-transition: all 500ms ease-in;
-  transition: all 500ms ease-in;
-  transform: perspective(500px);
-  -ms-transform: perspective(500px);
-  -webkit-transform: perspective(500px);
-  height: 250px;
-  text-align: center;
-  overflow: hidden; }
-
-.top {
-  position: relative;
-  background: rgba(0, 0, 0, 0.7);
-  -moz-border-radius: 250px 250px 0 0;
-  -webkit-border-radius: 250px 250px 0 0;
-  border-radius: 250px 250px 0 0;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box; }
-  .top img {
-    margin-top: 100px; }
-
-.bottom {
-  background: rgba(79, 183, 108, 0.7);
-  -moz-border-radius: 0 0 250px 250px;
-  -webkit-border-radius: 0 0 250px 250px;
-  border-radius: 0 0 250px 250px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box; }
-
-/*
-* @lightswitch
-*/
-.lightswitch {
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  border-radius: 20px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  -moz-transition: all 300ms ease-in-out;
-  -o-transition: all 300ms ease-in-out;
-  -ms-transition: all 300ms ease-in-out;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
-  position: absolute;
-  top: 100px;
-  right: 12.50%;
-  background: #333333;
-  width: 21px;
-  height: 21px;
-  z-index: 10; }
-  .lightswitch:before {
-    -moz-transition: all 300ms ease-in-out;
-    -o-transition: all 300ms ease-in-out;
-    -ms-transition: all 300ms ease-in-out;
-    -webkit-transition: all 300ms ease-in-out;
-    transition: all 300ms ease-in-out;
-    content: '';
-    height: 100px;
-    width: 1px;
-    background: black;
-    position: absolute;
-    top: -100px;
-    left: 10px; }
-  .lightswitch:active, .lightswitch:focus {
-    outline: none; }
-  .lightswitch.on {
-    background: #4fb76c;
-    top: 120px; }
-    .lightswitch.on:before {
-      top: -120px;
-      height: 120px; }
-
 @-webkit-keyframes lateFadeIn {
   0% {
     opacity: 0; }
@@ -1897,25 +1775,157 @@ body {
   100% {
     opacity: 0; } }
 
-/*
-* Slider Stuff
-*/
-.swiper-container {
-  width: 500px;
-  height: 200px;
+body {
+  background: url("../img/bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden; }
+
+/* Mozilla based browsers */
+::-moz-selection {
+  background-color: #b04893;
+  color: #fff; }
+
+/* Works in Safari */
+::selection {
+  background-color: #b04893;
+  color: #fff; }
+
+.screen {
+  -moz-transition: opacity 500ms ease-in;
+  -o-transition: opacity 500ms ease-in;
+  -ms-transition: opacity 500ms ease-in;
+  -webkit-transition: opacity 500ms ease-in;
+  transition: opacity 500ms ease-in;
+  content: "";
+  position: absolute;
+  background: rgba(176, 72, 147, 0.3);
+  z-index: -1;
+  /* Keep the background behind the content */
+  height: 100%;
+  width: 100%;
+  /* Using Glen Maddern's trick /via @mente */
+  top: 0;
+  left: 0;
   opacity: 0; }
-  .swiper-container.open {
+
+body.active .screen {
+  opacity: 1; }
+
+/*
+* @lightswitch
+*/
+.lightswitch {
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  position: absolute;
+  top: 100px;
+  right: 12.50%;
+  background: #333333;
+  width: 21px;
+  height: 21px;
+  z-index: 10; }
+  .lightswitch:before {
+    -moz-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+    -ms-transition: all 300ms ease-in-out;
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+    content: '';
+    height: 100px;
+    width: 1px;
+    background: black;
+    position: absolute;
+    top: -100px;
+    left: 10px; }
+  .lightswitch:active, .lightswitch:focus {
+    outline: none; }
+  .lightswitch.on {
+    background: #4fb76c;
+    top: 120px; }
+    .lightswitch.on:before {
+      top: -120px;
+      height: 120px; }
+
+/*
+* @top & @bottom
+*/
+.top,
+.bottom {
+  -moz-transition: all 500ms ease-in;
+  -o-transition: all 500ms ease-in;
+  -ms-transition: all 500ms ease-in;
+  -webkit-transition: all 500ms ease-in;
+  transition: all 500ms ease-in;
+  transform: perspective(500px);
+  -ms-transform: perspective(500px);
+  -webkit-transform: perspective(500px);
+  height: 250px;
+  text-align: center;
+  overflow: hidden; }
+
+.top {
+  position: relative;
+  background: rgba(0, 0, 0, 0.7);
+  -moz-border-radius: 250px 250px 0 0;
+  -webkit-border-radius: 250px 250px 0 0;
+  border-radius: 250px 250px 0 0;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box; }
+  .top img {
+    margin-top: 100px; }
+
+.bottom {
+  background: rgba(79, 183, 108, 0.7);
+  -moz-border-radius: 0 0 250px 250px;
+  -webkit-border-radius: 0 0 250px 250px;
+  border-radius: 0 0 250px 250px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box; }
+
+/*
+* @content
+*/
+.content {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-transition: height 500ms ease-in;
+  -o-transition: height 500ms ease-in;
+  -ms-transition: height 500ms ease-in;
+  -webkit-transition: height 500ms ease-in;
+  transition: height 500ms ease-in;
+  height: 0px;
+  position: absolute;
+  overflow: hidden; }
+  .content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    opacity: 0; }
+  .content.open ul,
+  .content.open nav {
     -webkit-animation: lateFadeIn 500ms normal forwards ease-in-out;
     -moz-animation: lateFadeIn 500ms normal forwards ease-in-out;
     animation: lateFadeIn 500ms normal forwards ease-in-out; }
 
-.swiper-wrapper {
-  width: 2500px; }
-
+/*
+* Slider Stuff
+*/
 .swiper-slide {
-  transform: scale(0.2);
-  -ms-transform: scale(0.2);
-  -webkit-transform: scale(0.2);
   -moz-transition: all 400ms ease-in;
   -o-transition: all 400ms ease-in;
   -ms-transition: all 400ms ease-in;
@@ -1926,31 +1936,21 @@ body {
   box-sizing: border-box;
   position: relative;
   background: rgba(255, 255, 255, 0.5);
-  padding: 20px;
+  padding: 60px 0 20px;
   width: 500px;
-  height: 200px;
-  color: #f0f0f0; }
-  .swiper-slide h1 {
-    position: absolute;
-    top: -150px;
-    width: 100%;
-    text-align: center;
-    color: #f0f0f0;
-    left: 0;
-    font-size: 5em;
-    -webkit-animation: lateFadeIn 500ms normal forwards ease-in-out;
-    -moz-animation: lateFadeIn 500ms normal forwards ease-in-out;
-    animation: lateFadeIn 500ms normal forwards ease-in-out; }
+  height: 400px;
+  color: #222;
+  font-family: "Nunito", sans-serif; }
   .swiper-slide p,
   .swiper-slide address {
-    padding: 3px;
-    background: rgba(0, 0, 0, 0.8); }
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.8); }
   .swiper-slide form {
-    margin: 15px 0;
-    text-align: center; }
+    margin: 0;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8); }
   .swiper-slide .map {
-    float: right;
-    margin-top: -20px; }
+    float: right; }
   .swiper-slide .icon-twitter-sign {
     color: #f0f0f0;
     margin: 12px auto 0px;
@@ -1963,7 +1963,7 @@ body {
   .swiper-slide.subscribe {
     background: url(../img/scenery/chatting.jpg) no-repeat center center;
     background-size: cover; }
-  .swiper-slide.intro {
+  .swiper-slide.gallery {
     background: url(../img/scenery/joshtalk.jpg) no-repeat center center;
     background-size: cover; }
   .swiper-slide.about, .swiper-slide.contact {
@@ -1992,6 +1992,50 @@ body {
   float: left; }
 
 /*
+* @nav
+*/
+nav {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  text-align: center;
+  border-bottom: 2px solid rgba(79, 183, 108, 0.4); }
+  nav ul {
+    margin: 0 auto;
+    padding: 0;
+    display: inline-block; }
+    nav ul li {
+      display: inline-block; }
+  nav a {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    position: relative; }
+    nav a:hover, nav a.active {
+      background: rgba(176, 72, 147, 0.7); }
+      nav a:hover:before, nav a.active:before {
+        opacity: 1; }
+    nav a:focus, nav a:active {
+      outline: none; }
+    nav a:before {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      bottom: -2px;
+      left: 0;
+      background: #b04893;
+      opacity: 0; }
+
+/*
 * @contain
 */
 .contain {
@@ -2005,18 +2049,18 @@ body {
   margin: auto; }
 
 .contain.open .top {
-  margin-top: -100px;
+  margin-top: -200px;
   -webkit-backface-visibility: hidden;
   transform: perspective(500px) rotateX(45deg);
   -ms-transform: perspective(500px) rotateX(45deg);
   -webkit-transform: perspective(500px) rotateX(45deg);
-  -webkit-transform-origin: 50% 100% 0;
-  -moz-transform-origin: 50% 100% 0;
-  -ms-transform-origin: 50% 100% 0;
-  -o-transform-origin: 50% 100% 0;
-  transform-origin: 50% 100% 0; }
+  -webkit-transform-origin: 50% 100% 1px;
+  -moz-transform-origin: 50% 100% 1px;
+  -ms-transform-origin: 50% 100% 1px;
+  -o-transform-origin: 50% 100% 1px;
+  transform-origin: 50% 100% 1px; }
 .contain.open .bottom {
-  margin-top: 200px;
+  margin-top: 400px;
   transform: perspective(500px) rotateX(-45deg);
   -ms-transform: perspective(500px) rotateX(-45deg);
   -webkit-transform: perspective(500px) rotateX(-45deg);
@@ -2026,13 +2070,4 @@ body {
   -o-transform-origin: 50% 0 0;
   transform-origin: 50% 0 0; }
 .contain.open .content {
-  height: 200px;
-  overflow: visible; }
-.contain.open .prev,
-.contain.open .next {
-  -webkit-animation: lateFadeIn 500ms normal forwards ease-in-out;
-  -moz-animation: lateFadeIn 500ms normal forwards ease-in-out;
-  animation: lateFadeIn 500ms normal forwards ease-in-out; }
-  .contain.open .prev.inactive,
-  .contain.open .next.inactive {
-    display: none; }
+  overflow: hidden; }
