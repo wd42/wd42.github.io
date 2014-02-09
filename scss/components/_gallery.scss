@@ -1,0 +1,26 @@
+#colorbox {
+  z-index: 50;
+}
+
+.gallery {
+  overflow: hidden;
+  a {
+    display: block;
+    float: left;
+    background: $bold-accent-color;
+    &:hover {
+      text-decoration: none;
+      img {
+        @include backface-visibility(hidden);
+        opacity: 0.5;
+      }
+    }
+  }
+  img {
+    @include transition(opacity 200ms ease-in);
+    @include backface-visibility(hidden);
+    display: block;
+    width: 96px;
+    height: 96px;
+  }
+}

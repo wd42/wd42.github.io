@@ -1,0 +1,24 @@
+.swiper-slide {
+  @include transition(all 400ms ease-in);
+  @include box-sizing(border-box);
+  position: relative;
+  background: rgba(#fff,0.5);
+  padding: 60px 0 20px;
+  width: 500px;
+  height: $contentHeight;
+  color: #222;
+  font-family: $content-font-stack;
+  &.subscribe {
+    background: url(../img/scenery/chatting.jpg) no-repeat center center;
+    @include background-size(cover);
+  }
+  &.gallery {
+    background: url(../img/scenery/joshtalk.jpg) no-repeat center center;
+    @include background-size(cover);
+  }
+  &.about,
+  &.contact {
+    background: url(../img/scenery/intro.jpg) no-repeat center center;
+    @include background-size(cover);
+  }
+}

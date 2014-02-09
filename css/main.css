@@ -1897,9 +1897,9 @@ body.active .screen {
   background-clip: padding-box; }
 
 /*
-* @content
+* @inner
 */
-.content {
+.inner {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -1911,85 +1911,16 @@ body.active .screen {
   height: 0px;
   position: absolute;
   overflow: hidden; }
-  .content ul {
+  .inner ul {
     list-style: none;
     margin: 0;
     padding: 0;
     opacity: 0; }
-  .content.open ul,
-  .content.open nav {
+  .inner.open ul,
+  .inner.open nav {
     -webkit-animation: lateFadeIn 500ms normal forwards ease-in-out;
     -moz-animation: lateFadeIn 500ms normal forwards ease-in-out;
     animation: lateFadeIn 500ms normal forwards ease-in-out; }
-
-/*
-* Slider Stuff
-*/
-.swiper-slide {
-  -moz-transition: all 400ms ease-in;
-  -o-transition: all 400ms ease-in;
-  -ms-transition: all 400ms ease-in;
-  -webkit-transition: all 400ms ease-in;
-  transition: all 400ms ease-in;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  position: relative;
-  background: rgba(255, 255, 255, 0.5);
-  padding: 60px 0 20px;
-  width: 500px;
-  height: 400px;
-  color: #222;
-  font-family: "Nunito", sans-serif; }
-  .swiper-slide p,
-  .swiper-slide address {
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.8); }
-  .swiper-slide form {
-    margin: 0;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.8); }
-  .swiper-slide .map {
-    float: right; }
-  .swiper-slide .icon-twitter-sign {
-    color: #f0f0f0;
-    margin: 12px auto 0px;
-    width: 35px;
-    height: 40px;
-    font-size: 40px;
-    display: block; }
-    .swiper-slide .icon-twitter-sign:hover {
-      color: #ccc; }
-  .swiper-slide.subscribe {
-    background: url(../img/scenery/chatting.jpg) no-repeat center center;
-    background-size: cover; }
-  .swiper-slide.gallery {
-    background: url(../img/scenery/joshtalk.jpg) no-repeat center center;
-    background-size: cover; }
-  .swiper-slide.about, .swiper-slide.contact {
-    background: url(../img/scenery/intro.jpg) no-repeat center center;
-    background-size: cover; }
-  .swiper-slide .jump {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0; }
-
-.swiper-slide-active {
-  transform: scale(1);
-  -ms-transform: scale(1);
-  -webkit-transform: scale(1); }
-  .swiper-slide-active .jump {
-    display: none; }
-  .swiper-slide-active h1 {
-    -webkit-animation: lateFadeOut 100ms normal forwards ease-in-out;
-    -moz-animation: lateFadeOut 100ms normal forwards ease-in-out;
-    animation: lateFadeOut 100ms normal forwards ease-in-out; }
-
-.gallery {
-  display: block;
-  float: left; }
 
 /*
 * @nav
@@ -2069,5 +2000,109 @@ nav {
   -ms-transform-origin: 50% 0 0;
   -o-transform-origin: 50% 0 0;
   transform-origin: 50% 0 0; }
-.contain.open .content {
+.contain.open .inner {
   overflow: hidden; }
+
+.swiper-slide {
+  -moz-transition: all 400ms ease-in;
+  -o-transition: all 400ms ease-in;
+  -ms-transition: all 400ms ease-in;
+  -webkit-transition: all 400ms ease-in;
+  transition: all 400ms ease-in;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 60px 0 20px;
+  width: 500px;
+  height: 400px;
+  color: #222;
+  font-family: "Nunito", sans-serif; }
+  .swiper-slide.subscribe {
+    background: url(../img/scenery/chatting.jpg) no-repeat center center;
+    background-size: cover; }
+  .swiper-slide.gallery {
+    background: url(../img/scenery/joshtalk.jpg) no-repeat center center;
+    background-size: cover; }
+  .swiper-slide.about, .swiper-slide.contact {
+    background: url(../img/scenery/intro.jpg) no-repeat center center;
+    background-size: cover; }
+
+#colorbox {
+  z-index: 50; }
+
+.gallery {
+  overflow: hidden; }
+  .gallery a {
+    display: block;
+    float: left;
+    background: #b04893; }
+    .gallery a:hover {
+      text-decoration: none; }
+      .gallery a:hover img {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        opacity: 0.5; }
+  .gallery img {
+    -moz-transition: opacity 200ms ease-in;
+    -o-transition: opacity 200ms ease-in;
+    -ms-transition: opacity 200ms ease-in;
+    -webkit-transition: opacity 200ms ease-in;
+    transition: opacity 200ms ease-in;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: block;
+    width: 96px;
+    height: 96px; }
+
+.content {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  overflow: hidden; }
+  .content .map {
+    float: right; }
+  .content form {
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+    width: 300px; }
+  .content input {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #b04893;
+    color: #fff;
+    border-radius: 0;
+    border: 0 none;
+    padding: 10px;
+    float: left;
+    width: 70%; }
+    .content input[type=submit] {
+      width: 30%;
+      border-left: 1px solid #daabcd; }
+  .content .social {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    padding: 0 30px 0 10px;
+    margin: 10px auto 0 auto;
+    line-height: 35px;
+    display: block;
+    text-decoration: none;
+    background: #b04893;
+    color: #daabcd;
+    width: 200px; }
+  .content .icon-twitter {
+    position: absolute;
+    top: -6px;
+    right: 10px;
+    color: #fff;
+    margin: 12px auto 0px;
+    width: 18px;
+    height: 21px;
+    font-size: 20px; }
