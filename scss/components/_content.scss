@@ -7,7 +7,12 @@
   .map {
     float: right;
   }
-
+  p {
+    margin-bottom: 15px;
+    &:last-child {
+      margin-bottom: 0 ;
+    }
+  }
   form {
     margin: 0 auto;
     text-align: center;
@@ -16,6 +21,7 @@
   }
   input {
     @include box-sizing(border-box);
+    @include transition(all 200ms ease-in);
     background: $bold-accent-color;
     color: #fff;
     border-radius: 0;
@@ -30,6 +36,7 @@
   }
   .social {
     @include box-sizing(border-box);
+    @include transition(all 200ms ease-in);
     position: relative;
     padding: 0 30px 0 10px;
     margin: 10px auto 0 auto;
@@ -39,6 +46,16 @@
     background: $bold-accent-color;
     color: $light-accent-color;
     width: 200px;
+  }
+  input:focus,
+  input:active,
+  input[type=submit]:hover,
+  .social:hover {
+    background: #fff;
+    color: $bold-accent-color;
+    .icon-twitter {
+      color: $bold-accent-color;
+    }
   }
   .icon-twitter {
     position: absolute;

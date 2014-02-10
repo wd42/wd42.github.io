@@ -33,14 +33,8 @@ body {
   overflow: hidden;
 }
 
-/* Mozilla based browsers */
-::-moz-selection {
-  background-color: $bold-accent-color;
-  color: #fff;
-}
-
-/* Works in Safari */
-::selection {
+::-moz-selection,
+::selection{
   background-color: $bold-accent-color;
   color: #fff;
 }
@@ -110,6 +104,9 @@ body.active .screen {
   height: 250px;
   text-align: center;
   overflow: hidden;
+  &:hover {
+    cursor: pointer;
+  }
 }
 .top {
   position: relative;

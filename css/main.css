@@ -1783,12 +1783,7 @@ body {
   background-size: cover;
   overflow: hidden; }
 
-/* Mozilla based browsers */
-::-moz-selection {
-  background-color: #b04893;
-  color: #fff; }
-
-/* Works in Safari */
+::-moz-selection,
 ::selection {
   background-color: #b04893;
   color: #fff; }
@@ -1874,6 +1869,9 @@ body.active .screen {
   height: 250px;
   text-align: center;
   overflow: hidden; }
+  .top:hover,
+  .bottom:hover {
+    cursor: pointer; }
 
 .top {
   position: relative;
@@ -2065,6 +2063,10 @@ nav {
   overflow: hidden; }
   .content .map {
     float: right; }
+  .content p {
+    margin-bottom: 15px; }
+    .content p:last-child {
+      margin-bottom: 0; }
   .content form {
     margin: 0 auto;
     text-align: center;
@@ -2074,6 +2076,11 @@ nav {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    -moz-transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
+    -ms-transition: all 200ms ease-in;
+    -webkit-transition: all 200ms ease-in;
+    transition: all 200ms ease-in;
     background: #b04893;
     color: #fff;
     border-radius: 0;
@@ -2088,6 +2095,11 @@ nav {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    -moz-transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
+    -ms-transition: all 200ms ease-in;
+    -webkit-transition: all 200ms ease-in;
+    transition: all 200ms ease-in;
     position: relative;
     padding: 0 30px 0 10px;
     margin: 10px auto 0 auto;
@@ -2097,6 +2109,17 @@ nav {
     background: #b04893;
     color: #daabcd;
     width: 200px; }
+  .content input:focus,
+  .content input:active,
+  .content input[type=submit]:hover,
+  .content .social:hover {
+    background: #fff;
+    color: #b04893; }
+    .content input:focus .icon-twitter,
+    .content input:active .icon-twitter,
+    .content input[type=submit]:hover .icon-twitter,
+    .content .social:hover .icon-twitter {
+      color: #b04893; }
   .content .icon-twitter {
     position: absolute;
     top: -6px;
