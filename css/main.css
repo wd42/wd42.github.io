@@ -1775,6 +1775,174 @@ h1 {
   100% {
     opacity: 0; } }
 
+@-webkit-keyframes wiggle-dot {
+  20% {
+    top: 100px;
+    background: #333333; }
+
+  40% {
+    top: 110px;
+    background: #4fb76c; }
+
+  60% {
+    top: 100px;
+    background: #333333; }
+
+  80% {
+    top: 110px;
+    background: #4fb76c; }
+
+  100% {
+    top: 100px;
+    background: #333333; } }
+
+@-moz-keyframes wiggle-dot {
+  20% {
+    top: 100px;
+    background: #333333; }
+
+  40% {
+    top: 110px;
+    background: #4fb76c; }
+
+  60% {
+    top: 100px;
+    background: #333333; }
+
+  80% {
+    top: 110px;
+    background: #4fb76c; }
+
+  100% {
+    top: 100px;
+    background: #333333; } }
+
+@-o-keyframes wiggle-dot {
+  20% {
+    top: 100px;
+    background: #333333; }
+
+  40% {
+    top: 110px;
+    background: #4fb76c; }
+
+  60% {
+    top: 100px;
+    background: #333333; }
+
+  80% {
+    top: 110px;
+    background: #4fb76c; }
+
+  100% {
+    top: 100px;
+    background: #333333; } }
+
+@keyframes wiggle-dot {
+  20% {
+    top: 100px;
+    background: #333333; }
+
+  40% {
+    top: 110px;
+    background: #4fb76c; }
+
+  60% {
+    top: 100px;
+    background: #333333; }
+
+  80% {
+    top: 110px;
+    background: #4fb76c; }
+
+  100% {
+    top: 100px;
+    background: #333333; } }
+
+@-webkit-keyframes wiggle-string {
+  20% {
+    top: -100px;
+    height: 100px; }
+
+  40% {
+    top: -110px;
+    height: 110px; }
+
+  60% {
+    top: -100px;
+    height: 100px; }
+
+  80% {
+    top: -110px;
+    height: 110px; }
+
+  100% {
+    top: -100px;
+    height: 100px; } }
+
+@-moz-keyframes wiggle-string {
+  20% {
+    top: -100px;
+    height: 100px; }
+
+  40% {
+    top: -110px;
+    height: 110px; }
+
+  60% {
+    top: -100px;
+    height: 100px; }
+
+  80% {
+    top: -110px;
+    height: 110px; }
+
+  100% {
+    top: -100px;
+    height: 100px; } }
+
+@-o-keyframes wiggle-string {
+  20% {
+    top: -100px;
+    height: 100px; }
+
+  40% {
+    top: -110px;
+    height: 110px; }
+
+  60% {
+    top: -100px;
+    height: 100px; }
+
+  80% {
+    top: -110px;
+    height: 110px; }
+
+  100% {
+    top: -100px;
+    height: 100px; } }
+
+@keyframes wiggle-string {
+  20% {
+    top: -100px;
+    height: 100px; }
+
+  40% {
+    top: -110px;
+    height: 110px; }
+
+  60% {
+    top: -100px;
+    height: 100px; }
+
+  80% {
+    top: -110px;
+    height: 110px; }
+
+  100% {
+    top: -100px;
+    height: 100px; } }
+
 .btn {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -1885,50 +2053,6 @@ body.active .screen {
   opacity: 1; }
 
 /*
-* @lightswitch
-*/
-.lightswitch {
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  border-radius: 20px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  -moz-transition: all 300ms ease-in-out;
-  -o-transition: all 300ms ease-in-out;
-  -ms-transition: all 300ms ease-in-out;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
-  position: absolute;
-  top: 100px;
-  right: 12.50%;
-  background: #333333;
-  width: 21px;
-  height: 21px;
-  z-index: 10; }
-  .lightswitch:before {
-    -moz-transition: all 300ms ease-in-out;
-    -o-transition: all 300ms ease-in-out;
-    -ms-transition: all 300ms ease-in-out;
-    -webkit-transition: all 300ms ease-in-out;
-    transition: all 300ms ease-in-out;
-    content: '';
-    height: 100px;
-    width: 1px;
-    background: black;
-    position: absolute;
-    top: -100px;
-    left: 10px; }
-  .lightswitch:active, .lightswitch:focus {
-    outline: none; }
-  .lightswitch.on {
-    background: #4fb76c;
-    top: 120px; }
-    .lightswitch.on:before {
-      top: -120px;
-      height: 120px; }
-
-/*
 * @top & @bottom
 */
 .top,
@@ -2015,6 +2139,11 @@ nav {
     nav ul li {
       display: inline-block; }
   nav a {
+    -moz-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+    -ms-transition: all 300ms ease-in-out;
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -2030,6 +2159,11 @@ nav {
     nav a:focus, nav a:active {
       outline: none; }
     nav a:before {
+      -moz-transition: all 300ms ease-in-out;
+      -o-transition: all 300ms ease-in-out;
+      -ms-transition: all 300ms ease-in-out;
+      -webkit-transition: all 300ms ease-in-out;
+      transition: all 300ms ease-in-out;
       content: '';
       position: absolute;
       height: 2px;
@@ -2075,6 +2209,55 @@ nav {
   transform-origin: 50% 0 0; }
 .contain.open .inner {
   overflow: hidden; }
+
+.lightswitch {
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  position: absolute;
+  top: 100px;
+  right: 12.50%;
+  background: #333333;
+  width: 21px;
+  height: 21px;
+  z-index: 10; }
+  .lightswitch:before {
+    -moz-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+    -ms-transition: all 300ms ease-in-out;
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+    content: '';
+    height: 100px;
+    width: 1px;
+    background: black;
+    position: absolute;
+    top: -100px;
+    left: 10px; }
+  .lightswitch:active, .lightswitch:focus {
+    outline: none; }
+  .lightswitch.on {
+    background: #4fb76c;
+    top: 120px; }
+    .lightswitch.on:before {
+      top: -120px;
+      height: 120px; }
+  .lightswitch.notify {
+    -webkit-animation: wiggle-dot 1s ease-in;
+    -moz-animation: wiggle-dot 1s ease-in;
+    animation: wiggle-dot 1s ease-in; }
+    .lightswitch.notify:before {
+      -webkit-animation: wiggle-string 1s ease-in;
+      -moz-animation: wiggle-string 1s ease-in;
+      animation: wiggle-string 1s ease-in; }
 
 .swiper-slide {
   -moz-transition: all 400ms ease-in;

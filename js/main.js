@@ -1,6 +1,8 @@
 (function () {
-  $('.lightswitch, .top, .bottom').click(function(){
-    $('.lightswitch').toggleClass('on');
+  var lightswitch = $('.lightswitch');
+
+  lightswitch.add('.top, .bottom').click(function(){
+    lightswitch.toggleClass('on');
     $('.contain, .inner').toggleClass('open');
     $('body').toggleClass('active');
     return false;
@@ -29,6 +31,29 @@
     height: '100%'
   });
 
+
+   function ifNoAction(interactables, after, duration, callbackStart, callbackEnd){
+    var mainTimer = window.setTimeout(trigger, after);
+    for (var i = 0; i < interactables.length; i++){
+      $(interactables[i].selector).on(interactables[i].events, function(){
+        window.clearTimeout(mainTimer);
+        return false;
+      });
+    }
+
+    function trigger(){
+      callbackStart();
+      window.setTimeout(callbackEnd, duration);
+    }
+  };
+
+  ifNoAction([{selector: '.lightswitch, .top, .bottom', events: 'click'}], 5000, 2000,
+    function(){
+      lightswitch.addClass('notify');
+    },
+    function(){
+      lightswitch.removeClass('notify');
+    });
 
   function mapInit() {
     var styles = [
