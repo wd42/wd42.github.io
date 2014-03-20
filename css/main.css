@@ -1775,6 +1775,78 @@ h1 {
   100% {
     opacity: 0; } }
 
+.btn {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-transition: all 200ms ease-in;
+  -o-transition: all 200ms ease-in;
+  -ms-transition: all 200ms ease-in;
+  -webkit-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+  position: relative;
+  padding: 0 10px;
+  line-height: 40px;
+  display: inline-block;
+  text-decoration: none;
+  background: #fff;
+  color: #222; }
+  .btn:hover {
+    background: #222;
+    color: #fff; }
+    .btn:hover .icon {
+      color: #fff; }
+  .btn.social {
+    padding-right: 30px; }
+  .btn .icon {
+    -moz-transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
+    -ms-transition: all 200ms ease-in;
+    -webkit-transition: all 200ms ease-in;
+    transition: all 200ms ease-in;
+    position: absolute;
+    color: #222;
+    font-size: 20px;
+    line-height: 40px;
+    right: 6px; }
+  .btn .icon-envelope,
+  .btn .icon-calendar {
+    font-size: 16px; }
+  .btn .icon-facebook {
+    right: 11px; }
+
+input.btn {
+  padding: 10px;
+  margin: 0; }
+
+form {
+  text-align: center;
+  overflow: hidden;
+  width: 300px; }
+
+input {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-transition: all 200ms ease-in;
+  -o-transition: all 200ms ease-in;
+  -ms-transition: all 200ms ease-in;
+  -webkit-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+  background: #fff;
+  color: #222;
+  border-radius: 0;
+  border: 0 none;
+  padding: 10px;
+  float: left;
+  width: 70%; }
+  input[type=submit] {
+    width: 30%;
+    border-left: 1px solid #ccc; }
+  input:focus {
+    background: #222;
+    color: #fff; }
+
 body {
   background: url("../img/bg.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -2010,6 +2082,7 @@ nav {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  background-size: cover;
   position: relative;
   background: rgba(255, 255, 255, 0.5);
   padding: 60px 0 20px;
@@ -2018,14 +2091,17 @@ nav {
   color: #222;
   font-family: "Nunito", sans-serif; }
   .swiper-slide.subscribe {
-    background: url(../img/scenery/chatting.jpg) no-repeat center center;
-    background-size: cover; }
+    background: url(../img/scenery/chatting.jpg) no-repeat center center; }
   .swiper-slide.gallery {
-    background: url(../img/scenery/joshtalk.jpg) no-repeat center center;
-    background-size: cover; }
-  .swiper-slide.about, .swiper-slide.contact {
-    background: url(../img/scenery/intro.jpg) no-repeat center center;
-    background-size: cover; }
+    background: url(../img/scenery/joshtalk.jpg) no-repeat center center; }
+    .swiper-slide.gallery .content {
+      padding: 10px; }
+  .swiper-slide.about {
+    background: url(../img/scenery/masnitalk.jpg) no-repeat center center; }
+  .swiper-slide.contact {
+    background: url(../img/scenery/intro.jpg) no-repeat center center; }
+  .swiper-slide.sponsors {
+    background: url(../img/scenery/crowd.jpg) no-repeat center center; }
 
 #colorbox {
   z-index: 50; }
@@ -2035,6 +2111,9 @@ nav {
   .gallery a {
     display: block;
     float: left;
+    width: 33.333%;
+    height: 100px;
+    overflow: hidden;
     background: #b04893; }
     .gallery a:hover {
       text-decoration: none; }
@@ -2051,81 +2130,53 @@ nav {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     display: block;
-    width: 96px;
-    height: 96px; }
+    width: 100%;
+    height: auto; }
+
+#cboxCurrent {
+  display: none; }
+
+#cboxNext,
+#cboxPrevious,
+#cboxClose {
+  background: none;
+  border: 0 none;
+  color: #fff; }
+
+#cboxNext,
+#cboxPrevious {
+  position: absolute;
+  bottom: 10px;
+  left: 50%; }
+
+#cboxNext {
+  margin-right: -20px; }
+
+#cboxPrevious {
+  margin-left: -20px; }
+
+#cboxClose {
+  position: absolute;
+  top: 10px;
+  right: 10px; }
 
 .content {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 10px 20px;
   background: rgba(255, 255, 255, 0.8);
-  overflow: hidden; }
+  overflow: hidden;
+  height: 100%;
+  color: #222; }
   .content .map {
     float: right; }
   .content p {
     margin-bottom: 15px; }
     .content p:last-child {
       margin-bottom: 0; }
-  .content form {
-    margin: 0 auto;
-    text-align: center;
-    overflow: hidden;
-    width: 300px; }
-  .content input {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -moz-transition: all 200ms ease-in;
-    -o-transition: all 200ms ease-in;
-    -ms-transition: all 200ms ease-in;
-    -webkit-transition: all 200ms ease-in;
-    transition: all 200ms ease-in;
-    background: #b04893;
-    color: #fff;
-    border-radius: 0;
-    border: 0 none;
-    padding: 10px;
-    float: left;
-    width: 70%; }
-    .content input[type=submit] {
-      width: 30%;
-      border-left: 1px solid #daabcd; }
-  .content .social {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -moz-transition: all 200ms ease-in;
-    -o-transition: all 200ms ease-in;
-    -ms-transition: all 200ms ease-in;
-    -webkit-transition: all 200ms ease-in;
-    transition: all 200ms ease-in;
-    position: relative;
-    padding: 0 30px 0 10px;
-    margin: 10px auto 0 auto;
-    line-height: 35px;
-    display: block;
-    text-decoration: none;
-    background: #b04893;
-    color: #daabcd;
-    width: 200px; }
-  .content input:focus,
-  .content input:active,
-  .content input[type=submit]:hover,
-  .content .social:hover {
-    background: #fff;
-    color: #b04893; }
-    .content input:focus .icon-twitter,
-    .content input:active .icon-twitter,
-    .content input[type=submit]:hover .icon-twitter,
-    .content .social:hover .icon-twitter {
-      color: #b04893; }
-  .content .icon-twitter {
-    position: absolute;
-    top: -6px;
-    right: 10px;
-    color: #fff;
-    margin: 12px auto 0px;
-    width: 18px;
-    height: 21px;
-    font-size: 20px; }
+  .content h4 {
+    margin: 10px 0 8px 0; }
+
+.sponsors {
+  text-align: center; }

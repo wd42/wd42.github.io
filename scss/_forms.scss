@@ -1,0 +1,24 @@
+form {
+  text-align: center;
+  overflow: hidden;
+  width: 300px;
+}
+input {
+  @include box-sizing(border-box);
+  @include transition(all 200ms ease-in);
+  background: #fff;
+  color: #222;
+  border-radius: 0;
+  border: 0 none;
+  padding: 10px;
+  float: left;
+  width: 70%;
+  &[type=submit]{
+    width: 30%;
+    border-left: 1px solid #ccc;
+  }
+  &:focus {
+    background: #222;
+    color: #fff;
+  }
+}

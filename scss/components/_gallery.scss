@@ -7,6 +7,9 @@
   a {
     display: block;
     float: left;
+    width: 33.333%;
+    height: 100px;
+    overflow: hidden;
     background: $bold-accent-color;
     &:hover {
       text-decoration: none;
@@ -20,7 +23,39 @@
     @include transition(opacity 200ms ease-in);
     @include backface-visibility(hidden);
     display: block;
-    width: 96px;
-    height: 96px;
+    width: 100%;
+    height: auto;
   }
+}
+
+#cboxCurrent {
+  display: none;
+}
+
+#cboxNext,
+#cboxPrevious,
+#cboxClose {
+  background: none;
+  border: 0 none;
+  color: #fff;
+}
+#cboxNext,
+#cboxPrevious {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+}
+
+#cboxNext {
+  margin-right: -20px;
+}
+
+#cboxPrevious {
+  margin-left: -20px;
+}
+
+#cboxClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }

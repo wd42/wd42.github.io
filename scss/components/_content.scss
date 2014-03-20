@@ -1,71 +1,27 @@
 .content {
   @include box-sizing(border-box);
-  padding: 10px;
+  padding: 10px 20px;
   background: rgba(#fff, 0.8);
   overflow: hidden;
+  height: 100%;
+  color: #222;
 
   .map {
     float: right;
   }
+
   p {
     margin-bottom: 15px;
     &:last-child {
       margin-bottom: 0 ;
     }
   }
-  form {
-    margin: 0 auto;
-    text-align: center;
-    overflow: hidden;
-    width: 300px;
-  }
-  input {
-    @include box-sizing(border-box);
-    @include transition(all 200ms ease-in);
-    background: $bold-accent-color;
-    color: #fff;
-    border-radius: 0;
-    border: 0 none;
-    padding: 10px;
-    float: left;
-    width: 70%;
-    &[type=submit]{
-      width: 30%;
-      border-left: 1px solid $light-accent-color;
-    }
-  }
-  .social {
-    @include box-sizing(border-box);
-    @include transition(all 200ms ease-in);
-    position: relative;
-    padding: 0 30px 0 10px;
-    margin: 10px auto 0 auto;
-    line-height: 35px;
-    display: block;
-    text-decoration: none;
-    background: $bold-accent-color;
-    color: $light-accent-color;
-    width: 200px;
-  }
-  input:focus,
-  input:active,
-  input[type=submit]:hover,
-  .social:hover {
-    background: #fff;
-    color: $bold-accent-color;
-    .icon-twitter {
-      color: $bold-accent-color;
-    }
-  }
-  .icon-twitter {
-    position: absolute;
-    top: -6px;
-    right: 10px;
-    color: #fff;
-    margin: 12px auto 0px;
-    width: 18px;
-    height: 21px;
-    font-size: 20px;
-  }
 
+  h4 {
+    margin: 10px 0 8px 0;
+  }
+}
+
+.sponsors {
+  text-align: center;
 }

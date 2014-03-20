@@ -1,0 +1,46 @@
+.btn {
+  @include box-sizing(border-box);
+  @include transition(all 200ms ease-in);
+  position: relative;
+  padding: 0 10px;
+  line-height: 40px;
+  display: inline-block;
+  text-decoration: none;
+  background: #fff;
+  color: #222;
+
+  &:hover {
+    background: #222;
+    color: #fff;
+    .icon {
+      color: #fff;
+    }
+  }
+
+  &.social {
+    padding-right: 30px;
+  }
+
+  .icon {
+    @include transition(all 200ms ease-in);
+    position: absolute;
+    color: #222;
+    font-size: 20px;
+    line-height: 40px;
+    right: 6px;
+  }
+
+  .icon-envelope,
+  .icon-calendar {
+    font-size: 16px;
+  }
+
+  .icon-facebook {
+    right: 11px;
+  }
+}
+
+input.btn {
+  padding: 10px;
+  margin: 0;
+}
