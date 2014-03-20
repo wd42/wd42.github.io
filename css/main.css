@@ -1808,7 +1808,8 @@ h1 {
     color: #222;
     font-size: 20px;
     line-height: 40px;
-    right: 6px; }
+    right: 6px;
+    top: 0; }
   .btn .icon-envelope,
   .btn .icon-calendar {
     font-size: 16px; }
