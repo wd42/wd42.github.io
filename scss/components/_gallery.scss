@@ -5,12 +5,14 @@
 .gallery {
   overflow: hidden;
   a {
+    @include box-sizing(border-box);
     display: block;
     float: left;
     width: 33.333%;
     height: 100px;
     overflow: hidden;
     background: $bold-accent-color;
+    border: 1px solid white;
     &:hover {
       text-decoration: none;
       img {

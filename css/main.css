@@ -2112,12 +2112,16 @@ nav {
 .gallery {
   overflow: hidden; }
   .gallery a {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     display: block;
     float: left;
     width: 33.333%;
     height: 100px;
     overflow: hidden;
-    background: #b04893; }
+    background: #b04893;
+    border: 1px solid white; }
     .gallery a:hover {
       text-decoration: none; }
       .gallery a:hover img {
