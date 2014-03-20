@@ -21,3 +21,39 @@
     opacity:0;
   }
 }
+
+@include keyframes(wiggle-dot) {
+  @for $i from 1 through 10 {
+    @if $i % 2 == 0 {
+      @if $i % 4 == 0 {
+        #{$i*10%} {
+          top: 110px;
+          background: $d-body-color;
+        }
+      } @else {
+        #{$i*10%} {
+          top: 100px;
+          background: $shadow-color;
+        }
+      }
+    }
+  }
+}
+
+@include keyframes(wiggle-string) {
+  @for $i from 1 through 10 {
+    @if $i % 2 == 0 {
+      @if $i % 4 == 0 {
+        #{$i*10%} {
+          top: -110px;
+          height: 110px;
+        }
+      } @else {
+        #{$i*10%} {
+          top: -100px;
+          height: 100px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.lightswitch {
+  @include border-radius(20px);
+  @include transition(all 300ms ease-in-out);
+  position: absolute;
+  top: 100px;
+  right: 12.50%;
+  background: $shadow-color;
+  width: 21px;
+  height: 21px;
+  z-index: 10;
+  &:before {
+    @include transition(all 300ms ease-in-out);
+    content: '';
+    height: 100px;
+    width: 1px;
+    background: $dark-border;
+    position: absolute;
+    top: -100px;
+    left: 10px;
+  }
+  &:active,
+  &:focus {
+    outline: none;
+  }
+
+  &.on {
+    background: $d-body-color;
+    top: 120px;
+    &:before {
+      top: -120px;
+      height: 120px;
+    }
+  }
+
+
+  &.notify {
+    @include animation(wiggle-dot 1.0s ease-in);
+    &:before {
+      @include animation(wiggle-string 1.0s ease-in);
+    }
+  }
+}
