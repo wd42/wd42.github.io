@@ -1841,7 +1841,8 @@ input {
   border: 0 none;
   padding: 10px;
   float: left;
-  width: 70%; }
+  width: 70%;
+  line-height: inherit; }
   input[type=submit] {
     width: 30%;
     border-left: 1px solid #ccc; }
