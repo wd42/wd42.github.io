@@ -16,7 +16,13 @@
   var data = slidey.data('unslider'),
     nav = $('nav a');
 
-  nav.click(function(){
+  nav.click(function(e){
+    e.preventDefault();
+	if (history) {
+      var a = $(this);
+      var href = a.attr('href');
+      history.pushState({}, '', href);
+	}
     data.move($(this).data('index'));
     nav.removeClass('active');
     $(this).addClass('active');
