@@ -18,14 +18,14 @@
 
   nav.click(function(e){
     e.preventDefault();
-	if (history) {
-      var a = $(this);
+    var a = $(this);
+    if (history) {
       var href = a.attr('href');
       history.pushState({}, '', href);
-	}
-    data.move($(this).data('index'));
+    }
+    data.move(a.data('index'));
     nav.removeClass('active');
-    $(this).addClass('active');
+    a.addClass('active');
   });
 
   $('.gallery a').colorbox({
