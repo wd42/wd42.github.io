@@ -31,7 +31,6 @@
     height: '100%'
   });
 
-
    function ifNoAction(interactables, after, duration, callbackStart, callbackEnd){
     var mainTimer = window.setTimeout(trigger, after);
     for (var i = 0; i < interactables.length; i++){
