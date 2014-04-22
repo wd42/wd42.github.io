@@ -13,87 +13,81 @@
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
-      <a href="#" class="lightswitch" aria-disabled="true">Enter</a>
-
-      <div class="contain">
-
-        <div class="top">
-          <img src="img/logo.png" />
-        </div>
-
-        <div class="inner">
-
-          <nav>
+        <a href="#" class="lightswitch"></a>
+        <div class="contain">
+          <header class="top">
+            <img src="img/logo.png" />
+            <span class="cover"></span>
+          </header>
+          <div class="inner">
+            <nav>
+              <ul>
+                <li><a data-index="0" href="#about">About</a></li>
+                <li><a data-index="1" href="#where">Where</a></li>
+                <li><a data-index="2" href="#gallery">Coverage</a></li>
+                <li><a data-index="3" href="#sponsors">Sponsors</a></li>
+                <li><a data-index="4" href="#contact">Contact</a></li>
+              </ul>
+            </nav>
             <ul>
-              <li><a data-index="0"  href="#">About</a></li>
-              <li><a data-index="1"  href="#">Where</a></li>
-              <li><a data-index="2"  href="#">Coverage</a></li>
-              <li><a data-index="3"  href="#">Sponsors</a></li>
-              <li><a data-index="4" href="#">Contact</a></li>
+              <li id="about" class="swiper-slide about">
+                <section class="content">
+                  <h4>Web Developer 42&#730; is a monthly meetup for Tasmanian web developers, designers and tinkerers.</h4>
+                  <p>Each month the team behind #wd42 work hard to deliver a range of compelling topics for discussion, presented by some of Tasmanias best emerging and established web professionals.</p>
+                  <p>Attendance is free, with food and drink provided!</p>
+                  <p>Join us at the next event on the 26th of March.</p>
+                  <a class="btn" href="https://ti.to/wd42/20140430" target="_blank">Register</a>
+                  <a class="btn" href="http://lanyrd.com/2014/wd42-april/" target="_blank">Event details</a>
+                </section>
+              </li>
+
+              <li id="where" class="swiper-slide contact">
+                <section id="map" class="content"></section>
+              </li>
+
+              <li id="gallery" class="swiper-slide gallery">
+                <section class="content">
+                  <a href="http://farm6.staticflickr.com/5500/9214304170_f8339ebaa2_b.jpg"><img src="http://farm6.staticflickr.com/5500/9214304170_f8339ebaa2_q.jpg" /></a>
+                  <a href="http://farm8.staticflickr.com/7451/9214307218_3ea3f838db_b.jpg"><img src="http://farm8.staticflickr.com/7451/9214307218_3ea3f838db_q.jpg" /></a>
+                  <a href="http://farm8.staticflickr.com/7360/9211526993_d54a28f6e5_b.jpg"><img src="http://farm8.staticflickr.com/7360/9211526993_d54a28f6e5_q.jpg" /></a>
+                  <a href="http://farm3.staticflickr.com/2825/9214306470_1b9887769b_b.jpg"><img src="http://farm3.staticflickr.com/2825/9214306470_1b9887769b_q.jpg" /></a>
+                  <a href="http://farm3.staticflickr.com/2868/11657849624_204852a08f_b.jpg"><img src="http://farm3.staticflickr.com/2868/11657849624_204852a08f_q.jpg" /></a>
+                  <a href="http://farm6.staticflickr.com/5546/11657837743_dc82e9a4ff_b.jpg"><img src="http://farm6.staticflickr.com/5546/11657837743_dc82e9a4ff_q.jpg" /></a>
+                  <a href="http://farm6.staticflickr.com/5486/11657597633_916202ab1e_b.jpg"><img src="http://farm6.staticflickr.com/5486/11657597633_916202ab1e_q.jpg" /></a>
+                  <a href="http://farm8.staticflickr.com/7362/9214306088_278c14b619_b.jpg"><img src="http://farm8.staticflickr.com/7362/9214306088_278c14b619_q.jpg" /></a>
+                  <a href="http://farm4.staticflickr.com/3775/9214307590_af91f33e88_b.jpg"><img src="http://farm4.staticflickr.com/3775/9214307590_af91f33e88_q.jpg" /></a>
+                </section>
+              </li>
+
+              <li id="sponsors" class="swiper-slide sponsors">
+                <section class="content">
+                  <a href="http://typewriterfactory.com/"><img src="img/sponsors/typewriter.gif" width="170" height="170" alt="The Typewriter Factory"/></a>
+                </section>
+              </li>
+
+              <li id="contact" class="swiper-slide subscribe">
+                <section class="content">
+                  <h4>Get in touch via:</h4>
+                  <a class="btn social" href="https://twitter.com/webdev42">Twitter <span class="icon icon-twitter"></span></a>
+                  <a class="btn social" href="https://www.facebook.com/webdev42">Facebook <span class="icon icon-facebook"></span></a>
+                  <a class="btn social" href="https://github.com/wd42">Github <span class="icon icon-github"></span></a>
+                  <a class="btn social" href="mailto:web@dev42.co?subject=Thanks for being awesome!">web@dev42.co <span class="icon icon-envelope"></span></a>
+                  <h4>Get calendar updates:</h4>
+                  <a class="btn social" href="http://www.google.com/calendar/ical/joshgilli.es_ets7187s9vds2f1j4vsiljtf4k%40group.calendar.google.com/public/basic.ics">iCal <span class="icon icon-calendar"></span></span></a>
+                  <h4>Get email updates:</h4>
+                  <form action="http://dev42.us3.list-manage.com/subscribe/post?u=9d22e44a865117ce25234bc95&amp;id=bedd17d01d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <input class="required email" type="email" placeholder="Enter your email..." value="" name="EMAIL" id="mce-EMAIL">
+                    <input class="btn" type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe">
+                  </form>
+                </section>
+              </li>
             </ul>
-          </nav>
-
-          <ul>
-            <li class="swiper-slide about">
-              <div class="content">
-                <h4>Web Developer 42&#730; is a monthly meetup for Tasmanian web developers, designers and tinkerers.</h4>
-                <p>Each month the team behind #wd42 work hard to deliver a range of compelling topics for discussion, presented by some of Tasmanias best emerging and established web professionals.</p>
-                <p>Attendance is free, with food and drink provided!</p>
-                <p>Join us at the next event on the 30th of April.</p>
-                <a class="btn" href="https://ti.to/wd42/20140430" target="_blank">Register</a>
-                <a class="btn" href="http://lanyrd.com/2014/wd42-april/" target="_blank">Event details</a>
-              </div>
-            </li>
-
-            <li class="swiper-slide contact">
-              <div id="map" class="content"></div>
-            </li>
-
-            <li class="swiper-slide gallery">
-              <div class="content">
-                <a href="http://farm6.staticflickr.com/5500/9214304170_f8339ebaa2_b.jpg"><img src="http://farm6.staticflickr.com/5500/9214304170_f8339ebaa2_q.jpg" /></a>
-                <a href="http://farm8.staticflickr.com/7451/9214307218_3ea3f838db_b.jpg"><img src="http://farm8.staticflickr.com/7451/9214307218_3ea3f838db_q.jpg" /></a>
-                <a href="http://farm8.staticflickr.com/7360/9211526993_d54a28f6e5_b.jpg"><img src="http://farm8.staticflickr.com/7360/9211526993_d54a28f6e5_q.jpg" /></a>
-                <a href="http://farm3.staticflickr.com/2825/9214306470_1b9887769b_b.jpg"><img src="http://farm3.staticflickr.com/2825/9214306470_1b9887769b_q.jpg" /></a>
-                <a href="http://farm3.staticflickr.com/2868/11657849624_204852a08f_b.jpg"><img src="http://farm3.staticflickr.com/2868/11657849624_204852a08f_q.jpg" /></a>
-                <a href="http://farm6.staticflickr.com/5546/11657837743_dc82e9a4ff_b.jpg"><img src="http://farm6.staticflickr.com/5546/11657837743_dc82e9a4ff_q.jpg" /></a>
-                <a href="http://farm6.staticflickr.com/5486/11657597633_916202ab1e_b.jpg"><img src="http://farm6.staticflickr.com/5486/11657597633_916202ab1e_q.jpg" /></a>
-                <a href="http://farm8.staticflickr.com/7362/9214306088_278c14b619_b.jpg"><img src="http://farm8.staticflickr.com/7362/9214306088_278c14b619_q.jpg" /></a>
-                <a href="http://farm4.staticflickr.com/3775/9214307590_af91f33e88_b.jpg"><img src="http://farm4.staticflickr.com/3775/9214307590_af91f33e88_q.jpg" /></a>
-              </div>
-            </li>
-
-            <li class="swiper-slide sponsors">
-              <div class="content">
-                <a href="http://typewriterfactory.com/"><img src="img/sponsors/typewriter.gif" width="170" height="170" alt="The Typewriter Factory"/></a>
-              </div>
-            </li>
-
-            <li class="swiper-slide subscribe">
-              <div class="content">
-                <h4>Get in touch via:</h4>
-                <a class="btn social" href="https://twitter.com/webdev42">Twitter <span class="icon icon-twitter"></span></a>
-                <a class="btn social" href="https://www.facebook.com/webdev42">Facebook <span class="icon icon-facebook"></span></a>
-                <a class="btn social" href="https://github.com/wd42">Github <span class="icon icon-github"></span></a>
-                <a class="btn social" href="mailto:web@dev42.co?subject=Thanks for being awesome!">web@dev42.co <span class="icon icon-envelope"></span></a>
-                <h4>Get calendar updates:</h4>
-                <a class="btn social" href="http://www.google.com/calendar/ical/joshgilli.es_ets7187s9vds2f1j4vsiljtf4k%40group.calendar.google.com/public/basic.ics">iCal <span class="icon icon-calendar"></span></span></a>
-                <h4>Get email updates:</h4>
-                <form action="http://dev42.us3.list-manage.com/subscribe/post?u=9d22e44a865117ce25234bc95&amp;id=bedd17d01d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                  <input class="required email" type="email" placeholder="Enter your email..." value="" name="EMAIL" id="mce-EMAIL">
-                  <input class="btn" type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe">
-                </form>
-              </div>
-            </li>
-
-          </ul>
+          </div>
+          <footer class="bottom">
+            <h1>the second closest webdev meetup to Antarctica.</h1>
+            <span class="cover"></span>
+          </footer>
         </div>
-
-        <div class="bottom">
-          <h1>the second closest webdev meetup to Antarctica.</h1>
-        </div>
-
-      </div>
 
       <span class="screen"></span>
 
@@ -111,5 +105,6 @@
         ga('create', 'UA-49198262-1', 'dev42.co');
         ga('send', 'pageview');
       </script>
+
     </body>
 </html>

@@ -16,10 +16,16 @@
   var data = slidey.data('unslider'),
     nav = $('nav a');
 
-  nav.click(function(){
-    data.move($(this).data('index'));
+  nav.click(function(e){
+    e.preventDefault();
+    var a = $(this);
+    if (history) {
+      var href = a.attr('href');
+      history.pushState({}, '', href);
+    }
+    data.move(a.data('index'));
     nav.removeClass('active');
-    $(this).addClass('active');
+    a.addClass('active');
   });
 
   $('.gallery a').colorbox({
