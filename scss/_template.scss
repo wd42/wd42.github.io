@@ -142,6 +142,20 @@ nav {
 }
 
 
+.no-js {
+  .inner {
+    height: 400px;
+
+    ul {
+      opacity: 1;
+    }
+  }
+
+  .lightswitch {
+    display: none;
+  }
+}
+
 /*
 * @contain
 */
@@ -157,7 +171,8 @@ nav {
 }
 
 
-.contain.open {
+.contain.open,
+.no-js .contain {
   .top {
     margin-top: -($contentHeight / 2);
     -webkit-backface-visibility: hidden;

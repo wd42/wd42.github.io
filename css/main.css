@@ -2173,6 +2173,13 @@ nav {
       background: #b04893;
       opacity: 0; }
 
+.no-js .inner {
+  height: 400px; }
+  .no-js .inner ul {
+    opacity: 1; }
+.no-js .lightswitch {
+  display: none; }
+
 /*
 * @contain
 */
@@ -2186,7 +2193,8 @@ nav {
   right: 0;
   margin: auto; }
 
-.contain.open .top {
+.contain.open .top,
+.no-js .contain .top {
   margin-top: -200px;
   -webkit-backface-visibility: hidden;
   transform: perspective(500px) rotateX(45deg);
@@ -2197,7 +2205,8 @@ nav {
   -ms-transform-origin: 50% 100% 1px;
   -o-transform-origin: 50% 100% 1px;
   transform-origin: 50% 100% 1px; }
-.contain.open .bottom {
+.contain.open .bottom,
+.no-js .contain .bottom {
   margin-top: 400px;
   transform: perspective(500px) rotateX(-45deg);
   -ms-transform: perspective(500px) rotateX(-45deg);
@@ -2207,7 +2216,8 @@ nav {
   -ms-transform-origin: 50% 0 0;
   -o-transform-origin: 50% 0 0;
   transform-origin: 50% 0 0; }
-.contain.open .inner {
+.contain.open .inner,
+.no-js .contain .inner {
   overflow: hidden; }
 
 .lightswitch {
